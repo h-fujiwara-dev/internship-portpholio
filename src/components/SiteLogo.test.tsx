@@ -3,12 +3,12 @@ import { render, screen } from "@testing-library/react"
 import { SiteLogo } from "@/components/SiteLogo"
 
 describe("SiteLogo", () => {
-  it("renders the brand name text", () => {
+  it("ブランド名のテキストが表示される", () => {
     render(<SiteLogo />)
     expect(screen.getByText("インターンコンパス")).toBeInTheDocument()
   })
 
-  it("merges a custom className onto the root element", () => {
+  it("カスタム className がルート要素にマージされる", () => {
     const { container } = render(<SiteLogo className="text-2xl" />)
     expect(container.firstElementChild).toHaveClass("text-2xl")
   })

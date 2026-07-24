@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest"
 import { metadata } from "@/app/layout"
 
-describe("RootLayout metadata", () => {
-  it("exports the Japanese page title and description", () => {
+describe("RootLayout のメタデータ", () => {
+  it("日本語のページタイトルと説明文をエクスポートしている", () => {
     expect(metadata.title).toBe(
       "インターンコンパス-大学生のインターンシップ総合サイト"
     )

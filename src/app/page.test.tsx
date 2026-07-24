@@ -3,18 +3,18 @@ import { render, screen } from "@testing-library/react"
 import Home from "@/app/page"
 
 describe("Home", () => {
-  it("mounts the full page composition without throwing", () => {
+  it("ページ全体が例外を投げずにマウントできる", () => {
     expect(() => render(<Home />)).not.toThrow()
   })
 
-  it("renders the header, main content, and footer landmarks", () => {
+  it("ヘッダー・メインコンテンツ・フッターのランドマークが表示される", () => {
     render(<Home />)
     expect(screen.getByRole("navigation", { name: "メインメニュー" })).toBeInTheDocument()
     expect(screen.getByRole("main")).toBeInTheDocument()
     expect(screen.getByRole("contentinfo")).toBeInTheDocument()
   })
 
-  it("renders every major section exactly once", () => {
+  it("主要なセクションが1回ずつ表示される", () => {
     render(<Home />)
     expect(
       screen.getByRole("heading", { level: 1 })

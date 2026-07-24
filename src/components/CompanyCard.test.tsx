@@ -16,7 +16,7 @@ const BASE_CARD: CompanyCardData = {
 }
 
 describe("CompanyCard", () => {
-  it("renders the title, location, and description", () => {
+  it("タイトル・所在地・説明文が表示される", () => {
     render(
       <ul>
         <CompanyCard card={BASE_CARD} />
@@ -28,7 +28,7 @@ describe("CompanyCard", () => {
     expect(screen.getByText(BASE_CARD.description)).toBeInTheDocument()
   })
 
-  it("renders every tag label", () => {
+  it("全てのタグラベルが表示される", () => {
     render(
       <ul>
         <CompanyCard card={BASE_CARD} />
@@ -40,7 +40,7 @@ describe("CompanyCard", () => {
     }
   })
 
-  it("points the title link, image link, and detail link at card.href", () => {
+  it("タイトルリンク・画像リンク・詳細リンクは全て card.href を指す", () => {
     render(
       <ul>
         <CompanyCard card={BASE_CARD} />
@@ -54,7 +54,7 @@ describe("CompanyCard", () => {
     }
   })
 
-  it("renders the card image with the title as alt text", () => {
+  it("card.title を alt テキストとしてカード画像が表示される", () => {
     render(
       <ul>
         <CompanyCard card={BASE_CARD} />
@@ -64,7 +64,7 @@ describe("CompanyCard", () => {
     expect(screen.getByRole("img", { name: BASE_CARD.title })).toBeInTheDocument()
   })
 
-  it("does not render a rank badge when card.rank is absent", () => {
+  it("card.rank が未指定のときは順位バッジを表示しない", () => {
     render(
       <ul>
         <CompanyCard card={BASE_CARD} />
@@ -74,7 +74,7 @@ describe("CompanyCard", () => {
     expect(screen.queryByText(/位$/)).not.toBeInTheDocument()
   })
 
-  it("renders a rank badge when card.rank is set", () => {
+  it("card.rank が指定されているときは順位バッジを表示する", () => {
     render(
       <ul>
         <CompanyCard card={{ ...BASE_CARD, rank: "1位" }} />

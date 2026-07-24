@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test"
 
-test.describe("Header navigation — desktop viewport", () => {
-  test("shows the desktop nav and hides the hamburger button", async ({
+test.describe("ヘッダーナビゲーション — デスクトップビューポート", () => {
+  test("デスクトップ用ナビが表示され、ハンバーガーボタンは非表示になる", async ({
     page,
   }) => {
     await page.goto("/")
@@ -15,10 +15,10 @@ test.describe("Header navigation — desktop viewport", () => {
   })
 })
 
-test.describe("Header navigation — mobile viewport", () => {
+test.describe("ヘッダーナビゲーション — モバイルビューポート", () => {
   test.use({ viewport: { width: 375, height: 812 } })
 
-  test("shows the hamburger button and hides the desktop nav", async ({
+  test("ハンバーガーボタンが表示され、デスクトップ用ナビは非表示になる", async ({
     page,
   }) => {
     await page.goto("/")
@@ -31,7 +31,7 @@ test.describe("Header navigation — mobile viewport", () => {
     ).toBeHidden()
   })
 
-  test("opens and closes the mobile nav panel via the hamburger and close buttons", async ({
+  test("ハンバーガーボタンと閉じるボタンでモバイルナビパネルを開閉できる", async ({
     page,
   }) => {
     await page.goto("/")
@@ -47,7 +47,7 @@ test.describe("Header navigation — mobile viewport", () => {
     await expect(panel).toHaveAttribute("aria-hidden", "true")
   })
 
-  test("closes the mobile nav panel when a nav link is clicked", async ({
+  test("ナビリンクをクリックするとモバイルナビパネルが閉じる", async ({
     page,
   }) => {
     await page.goto("/")

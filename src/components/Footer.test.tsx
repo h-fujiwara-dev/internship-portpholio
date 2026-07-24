@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react"
 import { Footer } from "@/components/Footer"
 
 describe("Footer", () => {
-  it("renders the back-to-top link pointing at #top", () => {
+  it("「トップへ戻る」リンクが #top を指している", () => {
     render(<Footer />)
     expect(screen.getByRole("link", { name: /トップへ戻る/ })).toHaveAttribute(
       "href",
@@ -11,7 +11,7 @@ describe("Footer", () => {
     )
   })
 
-  it("renders 17 sitemap links across the 3 columns", () => {
+  it("3つのカラムにまたがるサイトマップリンクが17件表示される", () => {
     render(<Footer />)
     const sitemapLinks = [
       "トップページ",
@@ -37,7 +37,7 @@ describe("Footer", () => {
     }
   })
 
-  it("renders the site logo and copyright notice", () => {
+  it("サイトロゴとコピーライト表記が表示される", () => {
     render(<Footer />)
     expect(screen.getByText("インターンコンパス")).toBeInTheDocument()
     expect(

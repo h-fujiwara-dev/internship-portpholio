@@ -3,10 +3,9 @@ import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { Header } from "@/components/Header"
 
-// The mobile nav panel is `aria-hidden` while closed, and accessible-name
-// computation for an aria-hidden element is unreliable across query modes —
-// so it's queried by its stable `#mobile-nav-panel` id instead of by role,
-// regardless of open/closed state.
+// モバイルナビパネルは閉じている間 `aria-hidden` になっており、aria-hidden な
+// 要素のアクセシブルネーム計算はクエリモードによって結果が変わり信頼できない。
+// そのため role ではなく安定した `#mobile-nav-panel` という id で取得する。
 function getMobileNavPanel(container: HTMLElement) {
   const panel = container.querySelector("#mobile-nav-panel")
   if (!panel) throw new Error("mobile nav panel not found")
@@ -14,14 +13,14 @@ function getMobileNavPanel(container: HTMLElement) {
 }
 
 describe("Header", () => {
-  it("renders the desktop nav with all nav items", () => {
+  it("デスクトップ用ナビに全てのナビ項目が表示される", () => {
     render(<Header />)
     const nav = screen.getByRole("navigation", { name: "メインメニュー" })
     expect(nav).toBeInTheDocument()
     expect(nav.querySelectorAll("a")).toHaveLength(4)
   })
 
-  it("renders the mobile nav panel closed by default", () => {
+  it("モバイルナビパネルは初期状態で閉じている", () => {
     const { container } = render(<Header />)
     const panel = getMobileNavPanel(container)
     expect(panel).toHaveAttribute("aria-hidden", "true")
@@ -30,7 +29,7 @@ describe("Header", () => {
     expect(openButton).toHaveAttribute("aria-expanded", "false")
   })
 
-  it("opens the mobile nav panel when the hamburger button is clicked", async () => {
+  it("ハンバーガーボタンをクリックするとモバイルナビパネルが開く", async () => {
     const user = userEvent.setup()
     const { container } = render(<Header />)
 
@@ -44,7 +43,7 @@ describe("Header", () => {
     )
   })
 
-  it("closes the mobile nav panel when the close button is clicked", async () => {
+  it("閉じるボタンをクリックするとモバイルナビパネルが閉じる", async () => {
     const user = userEvent.setup()
     const { container } = render(<Header />)
 
@@ -54,7 +53,7 @@ describe("Header", () => {
     expect(getMobileNavPanel(container)).toHaveAttribute("aria-hidden", "true")
   })
 
-  it("closes the mobile nav panel when a nav link inside it is clicked", async () => {
+  it("パネル内のナビリンクをクリックするとモバイルナビパネルが閉じる", async () => {
     const user = userEvent.setup()
     const { container } = render(<Header />)
 

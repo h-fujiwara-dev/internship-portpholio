@@ -3,13 +3,13 @@ import { render, screen } from "@testing-library/react"
 import { SidebarBanners } from "@/components/SidebarBanners"
 
 describe("SidebarBanners", () => {
-  it("renders all 9 banners as links with an image", () => {
+  it("画像付きのバナーリンクが9件表示される", () => {
     render(<SidebarBanners />)
     expect(screen.getAllByRole("link")).toHaveLength(9)
     expect(screen.getAllByRole("img")).toHaveLength(9)
   })
 
-  it("uses each banner's alt text as both the image alt and the visible label", () => {
+  it("各バナーの alt テキストが画像の alt と表示ラベルの両方に使われる", () => {
     render(<SidebarBanners />)
     const [firstImage] = screen.getAllByRole("img")
     expect(firstImage).toHaveAttribute(

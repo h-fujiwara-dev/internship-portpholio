@@ -3,21 +3,21 @@ import { render, screen } from "@testing-library/react"
 import { RecommendedArticles } from "@/components/RecommendedArticles"
 
 describe("RecommendedArticles", () => {
-  it("renders the section heading", () => {
+  it("セクション見出しが表示される", () => {
     render(<RecommendedArticles />)
     expect(
       screen.getByRole("heading", { name: "大学生おすすめ記事" })
     ).toBeInTheDocument()
   })
 
-  it("renders all 4 articles as links with a thumbnail image", () => {
+  it("サムネイル画像付きの記事リンクが4件表示される", () => {
     render(<RecommendedArticles />)
     const links = screen.getAllByRole("link")
     expect(links).toHaveLength(4)
     expect(screen.getAllByRole("img")).toHaveLength(4)
   })
 
-  it("renders each article's title as link text", () => {
+  it("各記事のタイトルがリンクテキストとして表示される", () => {
     render(<RecommendedArticles />)
     expect(
       screen.getByRole("link", { name: /大学１・２年生もインターンに行こう/ })

@@ -3,23 +3,23 @@ import { render, screen } from "@testing-library/react"
 import { Hero } from "@/components/Hero"
 
 describe("Hero", () => {
-  it("renders the main headline", () => {
+  it("メインの見出しが表示される", () => {
     render(<Hero />)
     expect(
       screen.getByRole("heading", { level: 1 })
     ).toHaveTextContent("インターンシップを大学生が探すならインターンコンパス")
   })
 
-  it("renders the mobile CTA button", () => {
+  it("モバイル用のCTAボタンが表示される", () => {
     render(<Hero />)
     expect(
       screen.getByRole("button", { name: "無料会員登録してインターンを探す" })
     ).toBeInTheDocument()
   })
 
-  it("renders the login form fields", () => {
+  it("ログインフォームの入力欄が表示される", () => {
     render(<Hero />)
-    // Two email inputs exist: the login card and the signup capture below it.
+    // メールアドレス入力欄はログインカードと会員登録欄の2箇所に存在する
     const emailInputs = screen.getAllByPlaceholderText("メールアドレス")
     expect(emailInputs).toHaveLength(2)
     for (const input of emailInputs) {
@@ -35,7 +35,7 @@ describe("Hero", () => {
     expect(screen.getByRole("button", { name: /^ログイン/ })).toBeInTheDocument()
   })
 
-  it("renders the LINE login and signup CTAs", () => {
+  it("LINEログインと会員登録のCTAが表示される", () => {
     render(<Hero />)
     expect(
       screen.getByRole("button", { name: /LINEでログイン/ })
@@ -45,7 +45,7 @@ describe("Hero", () => {
     ).toBeInTheDocument()
   })
 
-  // The Hero's inputs/buttons are currently static markup with no event
-  // handlers wired up (see AGENTS.md clone scope) — these tests intentionally
-  // assert structure/accessibility only, not submit behavior.
+  // Hero 内の入力欄・ボタンは現状イベントハンドラが未実装の静的なマークアップ
+  // （クローン範囲の都合、AGENTS.md参照）のため、ここでは送信時の挙動ではなく
+  // 構造・アクセシビリティのみを検証する。
 })

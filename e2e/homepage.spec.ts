@@ -1,14 +1,14 @@
 import { test, expect } from "@playwright/test"
 
-test.describe("Homepage", () => {
-  test("has the expected document title", async ({ page }) => {
+test.describe("トップページ", () => {
+  test("想定通りのドキュメントタイトルが設定されている", async ({ page }) => {
     await page.goto("/")
     await expect(page).toHaveTitle(
       "インターンコンパス-大学生のインターンシップ総合サイト"
     )
   })
 
-  test("renders every major section", async ({ page }) => {
+  test("主要なセクションが全て表示される", async ({ page }) => {
     await page.goto("/")
 
     await expect(
@@ -37,14 +37,14 @@ test.describe("Homepage", () => {
     ).toBeVisible()
   })
 
-  test("renders the client logo marquee with duplicated tracks", async ({
+  test("クライアントロゴのマルケーが2トラック分表示される", async ({
     page,
   }) => {
     await page.goto("/")
     await expect(page.getByText("キャリアブリッジ").first()).toBeVisible()
   })
 
-  test("scrolls to the top when the footer's back-to-top link is clicked", async ({
+  test("フッターの「トップへ戻る」リンクをクリックするとページ上部に戻る", async ({
     page,
   }) => {
     await page.goto("/")
