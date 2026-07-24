@@ -1,5 +1,15 @@
 import type { SVGProps } from "react";
 
+/** Compass mark used as the site's own brand icon (SiteLogo). */
+export function CompassIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" {...props}>
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth={2} />
+      <path d="M15.5 8.5l-2 5-5 2 2-5 5-2z" fill="currentColor" />
+    </svg>
+  );
+}
+
 /** FontAwesome "book" solid — used for the "お役立ち情報" header nav link. */
 export function BookIcon(props: SVGProps<SVGSVGElement>) {
   return (

@@ -6,17 +6,17 @@ import type { CompanyCard as CompanyCardData } from "@/types/internship";
 
 const FEATURED_COMPANIES: CompanyCardData[] = [
   {
-    title: "伊藤忠エネクス株式会社",
+    title: "サンエナジー商事株式会社",
     href: "#",
-    image: "/images/companies/0002_1009.png",
+    image: "/images/companies/company-1.jpg",
     tags: [{ label: "短期", variant: "short-term" }],
-    location: "東京都：虎ノ門駅、霞が関駅",
+    location: "東京都：中央駅、霞が丘駅",
     description: "【夏期オープンカンパニー/対面】エネルギーの未来を考える3DAYS OPENCOMPANY",
   },
   {
-    title: "株式会社キーエンス　営業職インターンシップ",
+    title: "テクノセンサー株式会社　営業職インターンシップ",
     href: "#",
-    image: "/images/companies/0002_0539.png",
+    image: "/images/companies/company-2.jpg",
     tags: [
       { label: "1day", variant: "1day" },
       { label: "オンライン", variant: "online" },
@@ -27,7 +27,7 @@ const FEATURED_COMPANIES: CompanyCardData[] = [
   {
     title: "キャリアを共に考えよう！選べる！就業体験コース",
     href: "#",
-    image: "/images/companies/0002_0599.png",
+    image: "/images/companies/company-3.jpg",
     tags: [
       { label: "1day", variant: "1day" },
       { label: "オンライン", variant: "online" },
@@ -37,28 +37,28 @@ const FEATURED_COMPANIES: CompanyCardData[] = [
   },
   {
     title:
-      "Bandai Namco Filmworks Presents SUMMER FESTIVAL 2026 ～アニメ制作から商品化・プロモーションまでを網羅する1dayビジネス体験～",
+      "ドリームアニメーションスタジオ Presents SUMMER FESTIVAL 2026 ～アニメ制作から商品化・プロモーションまでを網羅する1dayビジネス体験～",
     href: "#",
-    image: "/images/companies/0002_0977.png",
+    image: "/images/companies/company-4.jpg",
     tags: [
       { label: "1day", variant: "1day" },
       { label: "オンライン", variant: "online" },
     ],
     location: "オンラインでの開催となります",
-    description: "【8月27日開催予定！】28新卒向け・バンダイナムコフィルムワークス 夏の大型イベント！",
+    description: "【8月27日開催予定！】28新卒向け・ドリームアニメーションスタジオ 夏の大型イベント！",
   },
   {
-    title: "【28卒】Ｓｋｙ株式会社　好働力！体感1DAYイベント",
+    title: "【28卒】クラウドナイン株式会社　好働力！体感1DAYイベント",
     href: "#",
-    image: "/images/companies/0002_1319.png",
+    image: "/images/companies/company-5.jpg",
     tags: [{ label: "1day", variant: "1day" }],
     location: "北海道、福岡",
     description: "札幌・福岡で開催！先輩社員座談会もセットで開催！",
   },
   {
-    title: "キーエンス S職(事務職) インターンシップ",
+    title: "テクノセンサー S職(事務職) インターンシップ",
     href: "#",
-    image: "/images/companies/0002_1476.png",
+    image: "/images/companies/company-6.jpg",
     tags: [
       { label: "1day", variant: "1day" },
       { label: "オンライン", variant: "online" },

@@ -36,7 +36,7 @@ const CALENDAR_ITEMS: CalendarItem[] = [
       { label: "ES", variant: "event" },
     ],
     title:
-      "【いすゞ自動車株式会社】 夏季オープンカンパニー 生産・開発・事務技術職",
+      "【はやぶさ自動車株式会社】 夏季オープンカンパニー 生産・開発・事務技術職",
     href: "#",
   },
   {
@@ -47,7 +47,7 @@ const CALENDAR_ITEMS: CalendarItem[] = [
       { label: "28卒", variant: "grade1" },
       { label: "応募フォーム", variant: "direct" },
     ],
-    title: "【鹿島建設株式会社】 機電系 2DAYSインターンシップ 北海道開催",
+    title: "【大地建設株式会社】 機電系 2DAYSインターンシップ 北海道開催",
     href: "#",
   },
   {
@@ -55,7 +55,7 @@ const CALENDAR_ITEMS: CalendarItem[] = [
     day: "24",
     deadlineLabel: "締切当日",
     tags: [{ label: "その他", variant: "soon" }],
-    title: "【東急建設株式会社】 機電ワーキングセミナー 東京対面開催",
+    title: "【都心建設株式会社】 機電ワーキングセミナー 東京対面開催",
     href: "#",
   },
   {
@@ -67,7 +67,7 @@ const CALENDAR_ITEMS: CalendarItem[] = [
       { label: "28卒以降", variant: "grade2" },
       { label: "その他", variant: "soon" },
     ],
-    title: "【東急建設株式会社】 設備ワーキングセミナー　東京開催",
+    title: "【都心建設株式会社】 設備ワーキングセミナー　東京開催",
     href: "#",
   },
   {
@@ -79,7 +79,7 @@ const CALENDAR_ITEMS: CalendarItem[] = [
       { label: "応募フォーム", variant: "direct" },
     ],
     title:
-      "【株式会社ローソン】 東北限定開催 課題解決プログラム「ローソンキャリアスクール」",
+      "【コンビニエンスマート株式会社】 東北限定開催 課題解決プログラム「マートキャリアスクール」",
     href: "#",
   },
   {
@@ -91,7 +91,7 @@ const CALENDAR_ITEMS: CalendarItem[] = [
       { label: "ES", variant: "event" },
     ],
     title:
-      "【いすゞ自動車株式会社】 開発職夏季就業体験型インターンシップ　神奈川開催",
+      "【はやぶさ自動車株式会社】 開発職夏季就業体験型インターンシップ　神奈川開催",
     href: "#",
   },
   {
@@ -102,7 +102,7 @@ const CALENDAR_ITEMS: CalendarItem[] = [
       { label: "短期", variant: "short-term" },
       { label: "オンライン", variant: "online" },
     ],
-    title: "株式会社バンダイナムコフィルムワークス 夏季1dayイベント",
+    title: "ドリームアニメーションスタジオ 夏季1dayイベント",
     href: "#",
   },
   {
@@ -113,7 +113,7 @@ const CALENDAR_ITEMS: CalendarItem[] = [
       { label: "1day", variant: "1day" },
       { label: "オンライン", variant: "online" },
     ],
-    title: "株式会社キーエンス　営業職インターンシップ",
+    title: "テクノセンサー株式会社　営業職インターンシップ",
     href: "#",
   },
   {
@@ -124,7 +124,7 @@ const CALENDAR_ITEMS: CalendarItem[] = [
       { label: "1day", variant: "1day" },
       { label: "オンライン", variant: "online" },
     ],
-    title: "株式会社ニトリ　就業体験コース",
+    title: "くらしの家具株式会社　就業体験コース",
     href: "#",
   },
   {
@@ -135,7 +135,7 @@ const CALENDAR_ITEMS: CalendarItem[] = [
       { label: "イベント", variant: "event" },
       { label: "特典あり", variant: "benefit" },
     ],
-    title: "Super Business Forum 東京開催",
+    title: "グランドキャリアフォーラム 東京開催",
     href: "#",
   },
 ];
@@ -146,7 +146,7 @@ export function DeadlineCalendar() {
       <h2 className="border-b-[3px] border-[#63dbff] px-[0.5em] pt-0 pb-[0.4em] text-center text-lg font-bold tracking-[0.02em] text-[#58717d]">
         厳選短期インターンシップ締切カレンダー
       </h2>
-      <div>
+      <div className="mt-8 px-4">
         <ul className="relative z-[1] h-[190px] list-none overflow-y-auto">
           {CALENDAR_ITEMS.map((item, index) => (
             <li

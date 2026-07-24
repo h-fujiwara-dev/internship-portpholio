@@ -9,7 +9,7 @@ export function Hero() {
             <span className="catchphrase__main-text block text-2xl font-bold tracking-[0.5px] md:text-[30px]">
               インターンシップを大学生が探すなら
               <br />
-              インターンシップガイド
+              インターンコンパス
             </span>
             <p className="catchphrase__sub-text mt-[1em] text-sm md:text-lg md:leading-[1.8] md:tracking-[3px]">
               全国47都道府県、日本最大の掲載企業数！
@@ -45,14 +45,14 @@ export function Hero() {
               className="mt-[0.5em] w-full bg-white p-[0.3em] leading-[2] text-black"
             />
 
-            <div className="login-box mt-[1em] flex justify-between">
-              <label className="flex flex-[1_0_auto] items-center gap-2 text-white">
-                <input type="checkbox" className="h-4 w-4" />
-                ログイン情報を記憶する
+            <div className="login-box mt-[1em] flex items-center justify-between gap-2">
+              <label className="flex min-w-0 flex-1 items-center gap-2 text-xs text-white">
+                <input type="checkbox" className="h-4 w-4 shrink-0" />
+                <span className="min-w-0">ログイン情報を記憶する</span>
               </label>
               <button
                 type="button"
-                className="flex flex-[0_0_130px] items-center justify-center gap-1 rounded-[3px] bg-[#5ab9dd] p-[10px] text-sm font-bold tracking-[2px] text-white transition-colors hover:bg-[#52abcd]"
+                className="flex w-[130px] shrink-0 items-center justify-center gap-1 rounded-[3px] bg-[#5ab9dd] p-[10px] text-sm font-bold tracking-[2px] text-white transition-colors hover:bg-[#52abcd]"
               >
                 ログイン
                 <ChevronRightIcon className="h-4 w-4 shrink-0" />

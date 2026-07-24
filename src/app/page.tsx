@@ -19,18 +19,18 @@ export default function Home() {
         <ClientLogoMarquee />
 
         <div className="mx-auto max-w-[650px] px-4 md:max-w-[980px]">
-          <div className="flex flex-col gap-[30px] md:grid md:grid-cols-[calc(100%-300px)_300px] md:gap-0">
-            <div className="flex flex-col gap-12 md:pr-6">
+          <div className="flex flex-col gap-[30px] md:grid md:grid-cols-[calc(100%-300px)_300px] md:gap-y-12 md:gap-x-0">
+            <div className="md:col-start-1 md:row-start-1 flex flex-col gap-12 md:pr-6">
               <DeadlineCalendar />
               <FeaturedCompanies />
               <EventRanking />
               <RecommendedArticles />
             </div>
             <SidebarBanners />
-          </div>
 
-          <div className="mt-12">
-            <AboutSection />
+            <div className="md:col-start-1 md:row-start-2 md:pr-6">
+              <AboutSection />
+            </div>
           </div>
         </div>
       </main>

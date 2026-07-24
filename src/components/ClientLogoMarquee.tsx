@@ -1,57 +1,63 @@
-import Image from "next/image"
-
 import type { ClientLogo } from "@/types/internship"
 
 /**
- * The 19 unique client logos, in source order.
- * Rendered twice back-to-back so the CSS marquee loop is seamless.
+ * 19 fictional client companies (no real brands) spanning the same mix of
+ * industries as the source site's logo strip, rendered as text wordmarks.
  */
 const CLIENT_LOGOS: ClientLogo[] = [
-  { name: "リクルート", image: "/images/logos/recruit.png" },
-  { name: "トヨタ自動車", image: "/images/logos/toyota.png" },
-  { name: "電通", image: "/images/logos/dentsu.png" },
-  { name: "Ｓｋｙ", image: "/images/logos/sky.png" },
-  { name: "三菱UFJ銀行", image: "/images/logos/mufg.png" },
-  { name: "三井住友海上火災保険", image: "/images/logos/ms-ad.png" },
-  { name: "楽天", image: "/images/logos/rakuten.png" },
-  { name: "一条工務店", image: "/images/logos/ichijo.png" },
-  { name: "阪急阪神HG", image: "/images/logos/hankyu-hanshin.png" },
-  { name: "読売新聞社", image: "/images/logos/yomiuri.png" },
-  { name: "ソフトバンク", image: "/images/logos/softbank.png" },
-  { name: "東京電力ホールディングス", image: "/images/logos/tepco.png" },
-  { name: "株式会社Cygames", image: "/images/logos/cygames.png" },
-  { name: "マイナビ", image: "/images/logos/mynavi.png" },
-  { name: "メルカリ", image: "/images/logos/mercari.png" },
-  { name: "青山商事", image: "/images/logos/aoyama.png" },
-  { name: "経済産業省", image: "/images/logos/meti.png" },
-  { name: "シンプレクス・ホールディングス株式会社", image: "/images/logos/simplex.png" },
-  { name: "ドワンゴ", image: "/images/logos/dwango.png" },
+  { name: "キャリアブリッジ", color: "#2563eb" },
+  { name: "サクラ自動車", color: "#dc2626" },
+  { name: "セントラル広告", color: "#111827" },
+  { name: "クラウドナイン", color: "#0ea5e9" },
+  { name: "太陽みらい銀行", color: "#ea580c" },
+  { name: "あんしん損害保険", color: "#059669" },
+  { name: "ハーモニーモール", color: "#e11d48" },
+  { name: "グリーンホーム工務店", color: "#16a34a" },
+  { name: "関西鉄道HD", color: "#7c3aed" },
+  { name: "日本タイムズ社", color: "#1f2937" },
+  { name: "コネクトモバイル", color: "#f97316" },
+  { name: "首都電力HD", color: "#0369a1" },
+  { name: "スターライトゲームス", color: "#9333ea" },
+  { name: "しごとナビ", color: "#2563eb" },
+  { name: "そよかぜマーケット", color: "#db2777" },
+  { name: "銀座スーツ", color: "#1e3a8a" },
+  { name: "未来産業省", color: "#374151" },
+  { name: "フロンティアHD", color: "#0891b2" },
+  { name: "ネオウェーブ", color: "#4338ca" },
 ]
 
-// Duplicated once, back-to-back, so translateX(-100%) on the doubled
-// track lands back at the visual start for a seamless loop.
-const MARQUEE_LOGOS = [...CLIENT_LOGOS, ...CLIENT_LOGOS]
+function LogoTrack() {
+  return (
+    <ul className="ig-marquee-track c-company__list flex min-w-full shrink-0">
+      {CLIENT_LOGOS.map((logo) => (
+        <li
+          key={logo.name}
+          className="c-company__item flex w-[180px] shrink-0 items-center justify-center pr-[80px]"
+        >
+          <span
+            className="max-w-[160px] truncate text-lg font-bold tracking-tight"
+            style={{ color: logo.color }}
+          >
+            {logo.name}
+          </span>
+        </li>
+      ))}
+    </ul>
+  )
+}
 
 export function ClientLogoMarquee() {
   return (
     <div className="company-section my-4 overflow-hidden md:mt-8 md:mb-14">
-      <div className="c-company flex overflow-hidden">
-        <ul className="ig-marquee-track c-company__list flex gap-8">
-          {MARQUEE_LOGOS.map((logo, index) => (
-            <li
-              key={`${logo.name}-${index}`}
-              className="c-company__item flex shrink-0 items-center"
-            >
-              <Image
-                src={logo.image}
-                alt={logo.name}
-                width={100}
-                height={48}
-                className="h-[48px] w-[100px] object-contain"
-              />
-            </li>
-          ))}
-        </ul>
+      {/* Two identical tracks placed side by side (matching the source's
+          two `.c-company__list` siblings, not one doubled list) — each
+          animates translateX(0 -> -100%) of ITS OWN width over 60s, so as
+          the first track slides fully offscreen the second (already
+          positioned right after it) lands exactly where the first started,
+          making the loop seamless without doubling the scroll speed. */}
+      <div className="c-company flex overflow-hidden bg-white">
+        <LogoTrack />
+        <LogoTrack />
       </div>
     </div>
   )

@@ -7,22 +7,22 @@ const RECOMMENDED_ARTICLES: RecommendedArticle[] = [
   {
     title: "大学１・２年生もインターンに行こう！",
     href: "#",
-    thumbnail: "/images/articles/about-intern_mini.jpg",
+    thumbnail: "/images/articles/article-1.jpg",
   },
   {
     title: "インターンシップとアルバイトの違いは？",
     href: "#",
-    thumbnail: "/images/articles/intern-parttime-difference_mini.jpg",
+    thumbnail: "/images/articles/article-2.jpg",
   },
   {
     title: "長期インターンのメリット・デメリット",
     href: "#",
-    thumbnail: "/images/articles/long-term-internship_mini.jpg",
+    thumbnail: "/images/articles/article-3.jpg",
   },
   {
     title: "就活の時期はいつから？28卒・29卒学生の動き方を解説",
     href: "#",
-    thumbnail: "/images/articles/what-is-internship-mini.jpg",
+    thumbnail: "/images/articles/article-4.jpg",
   },
 ];
 
@@ -32,7 +32,7 @@ export function RecommendedArticles() {
       <h2 className="border-b-[3px] border-[#63dbff] px-[0.5em] pt-0 pb-[0.4em] text-center text-[18px] font-bold tracking-[0.02em] text-[#58717d]">
         大学生おすすめ記事
       </h2>
-      <div>
+      <div className="mt-8 px-4">
         <ul className="mt-[-1em] list-none">
           {RECOMMENDED_ARTICLES.map((article) => (
             <li

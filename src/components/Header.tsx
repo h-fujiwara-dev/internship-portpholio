@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, type ComponentType, type SVGProps } from "react"
-import Image from "next/image"
+import { SiteLogo } from "@/components/SiteLogo"
 import { cn } from "@/lib/utils"
 import {
   BookIcon,
@@ -34,16 +34,9 @@ export function Header() {
       <div className="w-full border-b border-[#e2e2e2] bg-white/95">
         <div className="relative mx-auto max-w-[980px] px-[1em] pt-[1em] pb-[0.5em] md:flex md:items-center md:justify-between">
           {/* Logo */}
-          <div className="mx-auto w-[145px] md:mx-0 md:flex-[0_0_145px]">
-            <a href="#" className="block transition-opacity hover:opacity-60">
-              <Image
-                src="/images/logo.png"
-                alt="インターンシップガイド"
-                width={145}
-                height={39}
-                priority
-                className="h-auto w-full"
-              />
+          <div className="mx-auto md:mx-0">
+            <a href="#" className="block text-xl transition-opacity hover:opacity-60">
+              <SiteLogo />
             </a>
           </div>
 

@@ -156,6 +156,12 @@
   body {
     @apply bg-background text-foreground;
     color: var(--ig-text);
+    /* Matches internshipguide.jp's `body { font-size: 12px }` base — every
+       component's `em`-based spacing (p-[1em], mt-[0.5em], etc.) was
+       extracted assuming this 12px cascade, not the browser's 16px default.
+       Tailwind's own rem-based utilities (text-sm, p-4, ...) are anchored to
+       the root <html> font-size and are unaffected by this. */
+    font-size: 12px;
   }
   html {
     @apply font-sans;

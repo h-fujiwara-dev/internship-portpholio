@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { ChevronRightIcon, ChevronUpIcon, FacebookIcon, XIcon } from "@/components/icons";
+import { SiteLogo } from "@/components/SiteLogo";
 
 const SITEMAP_COLUMNS: { label: string; href: string }[][] = [
   [
@@ -17,15 +17,15 @@ const SITEMAP_COLUMNS: { label: string; href: string }[][] = [
     { label: "多くの企業様に支持される理由", href: "#" },
     { label: "インターンシップの掲載無料", href: "#" },
     { label: "説明会、インターンの掲載・採用無料", href: "#" },
-    { label: "IG学生集客サービス", href: "#" },
+    { label: "IC学生集客サービス", href: "#" },
   ],
   [
-    { label: "インターンシップガイドとは", href: "#" },
+    { label: "インターンコンパスとは", href: "#" },
     { label: "インターン生募集", href: "#" },
     { label: "利用規約", href: "#" },
     { label: "プライバシーポリシー", href: "#" },
     { label: "注目のキーワード一覧", href: "#" },
-    { label: "一般常識一問一答.com(外部)", href: "#" },
+    { label: "一般教養クイズ集(外部)", href: "#" },
   ],
 ];
 
@@ -86,20 +86,14 @@ export function Footer() {
       </div>
 
       <div className="mx-auto max-w-[980px] px-4 py-[1em]">
-        <div className="mx-auto w-[30%] md:w-[120px]">
-          <a href="#" className="block transition-opacity md:hover:opacity-60">
-            <Image
-              src="/images/logo.png"
-              alt="インターンシップガイド"
-              width={120}
-              height={32}
-              className="h-auto w-full"
-            />
+        <div className="flex justify-center">
+          <a href="#" className="inline-block text-base transition-opacity md:hover:opacity-60">
+            <SiteLogo />
           </a>
         </div>
         <div className="mt-4 text-center text-[11px] tracking-[1px] text-[#58717d]">
-          <p className="mt-2">COPYRIGHT © 2014 futurelabo,Inc. ALL RIGHTS RESERVED.</p>
-          <p className="mt-2">インターンシップガイドは株式会社futurelaboの登録商標です。</p>
+          <p className="mt-2">COPYRIGHT © 2014 NextLab, Inc. ALL RIGHTS RESERVED.</p>
+          <p className="mt-2">インターンコンパスは株式会社ネクストラボの登録商標です。</p>
           <p className="mt-2">
             This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
           </p>

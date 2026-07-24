@@ -60,7 +60,8 @@ export interface HeaderNavLink {
   icon: "external-link" | "book" | "user-plus" | "login";
 }
 
+/** Rendered as a text wordmark (no logo image) with a brand accent color. */
 export interface ClientLogo {
   name: string;
-  image: string;
+  color: string;
 }

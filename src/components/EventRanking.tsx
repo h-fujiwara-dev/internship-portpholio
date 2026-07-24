@@ -7,39 +7,39 @@ import type { CompanyCard as CompanyCardData } from "@/types/internship";
 const EVENT_RANKING: CompanyCardData[] = [
   {
     rank: "1位",
-    title: "Super Business Forum 東京開催",
+    title: "グランドキャリアフォーラム 東京開催",
     href: "#",
-    image: "/images/companies/0002_1948.png",
+    image: "/images/companies/event-1.jpg",
     tags: [
       { label: "イベント", variant: "event" },
       { label: "特典あり", variant: "benefit" },
     ],
-    location: "有楽町駅：東京国際フォーラム",
-    description: "【8/3@東京】日本最大級！資生堂グループ、集英社、松竹、伊藤忠商事などが出展！",
+    location: "中央駅：東京グランドホール",
+    description: "【8/3@東京】日本最大級！コスメティックグループ、文英社、東西映画、サンエナジー商事などが出展！",
   },
   {
     rank: "2位",
-    title: "グロース就活DXPO'26 夏",
+    title: "グロースキャリアEXPO'26 夏",
     href: "#",
-    image: "/images/companies/0002_0885.png",
+    image: "/images/companies/event-2.jpg",
     tags: [
       { label: "イベント", variant: "event" },
       { label: "特典あり", variant: "benefit" },
     ],
-    location: "東京ビッグサイト西1ホール",
-    description: "【8/22(土)@東京ビッグサイト】成長企業125社が集まる大規模就活イベント",
+    location: "東京コンベンションセンター 西1ホール",
+    description: "【8/22(土)@東京コンベンションセンター】成長企業125社が集まる大規模就活イベント",
   },
   {
     rank: "3位",
-    title: "Super Business Forum 大阪開催",
+    title: "グランドキャリアフォーラム 大阪開催",
     href: "#",
-    image: "/images/companies/0002_2053.png",
+    image: "/images/companies/event-3.jpg",
     tags: [
       { label: "イベント", variant: "event" },
       { label: "特典あり", variant: "benefit" },
     ],
-    location: "大阪府：グランフロント大阪",
-    description: "【8/1-2@大阪】NTTデータ関西、近畿日本鉄道、伊藤忠商事など約190社が参加予定！",
+    location: "大阪府：大阪セントラルタワー",
+    description: "【8/1-2@大阪】関西データ株式会社、近畿急行鉄道、サンエナジー商事など約190社が参加予定！",
   },
 ];
 
