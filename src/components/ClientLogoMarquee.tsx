@@ -1,8 +1,8 @@
 import type { ClientLogo } from "@/types/internship"
 
 /**
- * 19 fictional client companies (no real brands) spanning the same mix of
- * industries as the source site's logo strip, rendered as text wordmarks.
+ * 実在しない架空の取引先企業19社（実際のブランドは含まない）。元サイトのロゴ帯と
+ * 同じ業種構成をカバーし、テキストワードマークとして表示する。
  */
 const CLIENT_LOGOS: ClientLogo[] = [
   { name: "キャリアブリッジ", color: "#2563eb" },
@@ -49,12 +49,11 @@ function LogoTrack() {
 export function ClientLogoMarquee() {
   return (
     <div className="company-section my-4 overflow-hidden md:mt-8 md:mb-14">
-      {/* Two identical tracks placed side by side (matching the source's
-          two `.c-company__list` siblings, not one doubled list) — each
-          animates translateX(0 -> -100%) of ITS OWN width over 60s, so as
-          the first track slides fully offscreen the second (already
-          positioned right after it) lands exactly where the first started,
-          making the loop seamless without doubling the scroll speed. */}
+      {/* 同一トラックを2つ並べて配置（元サイトの `.c-company__list` が2つ並ぶ構造を
+          再現。1つのリストを倍にしたものではない）— 各トラックは自身の幅に対して
+          60秒かけて translateX(0 -> -100%) するので、1つ目が画面外に出きったとき、
+          直後に配置された2つ目がちょうど1つ目の開始位置に来る。これによりスクロール
+          速度を倍にすることなくループを継ぎ目なく見せている。 */}
       <div className="c-company flex overflow-hidden bg-white">
         <LogoTrack />
         <LogoTrack />

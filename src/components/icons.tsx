@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-/** Compass mark used as the site's own brand icon (SiteLogo). */
+/** サイト独自のブランドアイコンとして使うコンパスマーク（SiteLogo）。 */
 export function CompassIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" {...props}>
@@ -10,7 +10,7 @@ export function CompassIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** FontAwesome "book" solid — used for the "お役立ち情報" header nav link. */
+/** FontAwesome "book" solid — ヘッダーナビの「お役立ち情報」リンクで使用。 */
 export function BookIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" {...props}>
@@ -19,7 +19,7 @@ export function BookIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** FontAwesome "user-plus" solid — used for the "新規会員登録" header nav link. */
+/** FontAwesome "user-plus" solid — ヘッダーナビの「新規会員登録」リンクで使用。 */
 export function UserPlusIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" {...props}>
@@ -28,7 +28,7 @@ export function UserPlusIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** FontAwesome "up-right-from-square" solid — used for the "採用担当者様はこちら" header nav link. */
+/** FontAwesome "up-right-from-square" solid — ヘッダーナビの「採用担当者様はこちら」リンクで使用。 */
 export function ExternalLinkIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" {...props}>
@@ -37,7 +37,7 @@ export function ExternalLinkIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** FontAwesome "right-to-bracket" solid — used for the "ログイン" header nav link. */
+/** FontAwesome "right-to-bracket" solid — ヘッダーナビの「ログイン」リンクで使用。 */
 export function LoginIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" {...props}>
@@ -46,7 +46,7 @@ export function LoginIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** Hamburger icon for the mobile nav toggle button. */
+/** モバイルナビの開閉ボタン用ハンバーガーアイコン。 */
 export function MenuIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" {...props}>
@@ -55,7 +55,7 @@ export function MenuIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** Close (X) icon for the mobile nav panel. */
+/** モバイルナビパネル用の閉じる（×）アイコン。 */
 export function CloseIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" {...props}>
@@ -64,7 +64,7 @@ export function CloseIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** Chevron used for "詳細をみる" / footer / calendar links (FontAwesome angle-right idiom). */
+/** 「詳細をみる」/ フッター / カレンダーのリンクで使う山形アイコン（FontAwesome angle-right相当）。 */
 export function ChevronRightIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -73,7 +73,7 @@ export function ChevronRightIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** Chevron used by "トップへ戻る" back-to-top footer link. */
+/** フッターの「トップへ戻る」リンクで使う山形アイコン。 */
 export function ChevronUpIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -82,7 +82,7 @@ export function ChevronUpIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** Location pin used on company/event card meta rows. */
+/** 企業/イベントカードのメタ情報行で使う位置ピンアイコン。 */
 export function LocationDotIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -91,7 +91,7 @@ export function LocationDotIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** X (Twitter) social icon for the footer. */
+/** フッター用のX（旧Twitter）ソーシャルアイコン。 */
 export function XIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -100,7 +100,7 @@ export function XIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** Facebook "f" social icon for the footer. */
+/** フッター用のFacebook「f」ソーシャルアイコン。 */
 export function FacebookIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -109,7 +109,7 @@ export function FacebookIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** LINE login button icon (simplified brand mark). */
+/** LINEログインボタン用アイコン（簡略化したブランドマーク）。 */
 export function LineIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>

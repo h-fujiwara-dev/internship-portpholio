@@ -20,7 +20,7 @@ export function Hero() {
             </p>
           </h1>
 
-          {/* Mobile-only CTA — desktop shows the login card instead */}
+          {/* モバイル専用CTA — デスクトップではログインカードを表示する */}
           <div className="key-visual__cta mt-6 flex items-center justify-center gap-2 md:hidden">
             <button
               type="button"
@@ -31,7 +31,7 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Desktop-only login card — not rendered on mobile */}
+        {/* デスクトップ専用ログインカード — モバイルでは表示しない */}
         <div className="key-visual__form hidden md:block md:flex-[0_0_350px]">
           <div className="form bg-black/75 p-[2em] text-[#e2e2e2]">
             <input

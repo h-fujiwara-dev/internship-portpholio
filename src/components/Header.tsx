@@ -33,16 +33,16 @@ export function Header() {
     <div className="l-body__header sticky top-0 z-[10000]">
       <div className="w-full border-b border-[#e2e2e2] bg-white/95">
         <div className="relative mx-auto max-w-[980px] px-[1em] pt-[1em] pb-[0.5em] md:flex md:items-center md:justify-between">
-          {/* Logo */}
+          {/* ロゴ */}
           <div className="mx-auto md:mx-0">
             <a href="#" className="block text-xl transition-opacity hover:opacity-60">
               <SiteLogo />
             </a>
           </div>
 
-          {/* Menu */}
+          {/* メニュー */}
           <div className="p-header__menu">
-            {/* Desktop nav */}
+            {/* デスクトップ用ナビ */}
             <nav className="hidden md:block" aria-label="メインメニュー">
               <ul className="flex items-center">
                 {NAV_ITEMS.map((item) => {
@@ -62,7 +62,7 @@ export function Header() {
               </ul>
             </nav>
 
-            {/* Mobile hamburger */}
+            {/* モバイル用ハンバーガーボタン */}
             <button
               type="button"
               onClick={() => setIsMenuOpen(true)}
@@ -75,7 +75,7 @@ export function Header() {
               <span className="text-[10px]">メニュー</span>
             </button>
 
-            {/* Mobile nav panel */}
+            {/* モバイル用ナビパネル */}
             <nav
               id="mobile-nav-panel"
               aria-label="モバイルメニュー"

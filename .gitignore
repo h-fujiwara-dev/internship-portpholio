@@ -50,3 +50,4 @@ temp/
 
 # Transient agent worktrees (created by parallel builder agents, merged manually)
 .claude/worktrees/
+.env*

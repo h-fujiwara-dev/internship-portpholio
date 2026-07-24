@@ -1,170 +1,114 @@
-# AI Website Cloner Template
+# インターンコンパス
 
-<a href="https://github.com/JCodesMore/ai-website-cloner-template/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License" /></a> <a href="https://github.com/JCodesMore/ai-website-cloner-template/stargazers"><img src="https://img.shields.io/github/stars/JCodesMore/ai-website-cloner-template?style=flat" alt="Stars" /></a> <a href="https://discord.gg/hrTSX5yTpB"><img src="https://img.shields.io/discord/1400896964597383279?label=discord" alt="Discord" /></a>
+<a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License" /></a>
 
-A reusable template for reverse-engineering any website into a clean, modern Next.js codebase using AI coding agents. 
+大学生向けインターンシップ情報サイトを、AIコーディングエージェントで解析・再構築したポートフォリオ実装です。実在のインターン情報サイト「[internshipguide.jp](https://internshipguide.jp/)」のトップページをリバースエンジニアリングし、デザイン・レイアウト・インタラクションをピクセル単位で再現した上で、サービス名・企業名・画像などはすべて架空のものに置き換えています。
 
-**Recommended: [Claude Code](https://docs.anthropic.com/en/docs/claude-code) with Opus 4.8 for best results** — but works with a variety of AI coding agents.
+## このプロジェクトについて
 
-Point it at a URL, run `/clone-website`, and your AI agent will inspect the site, extract design tokens and assets, write component specs, and dispatch parallel builders to reconstruct every section.
+- **目的** — 実在サービスのUIを題材に、「デザインの精密な再現力」と「モダンなフロントエンド実装力」を示すポートフォリオとして制作しました。
+- **手法** — Claude Code (Opus 4.8) 上で動作する自作のAIエージェントパイプライン(`/clone-website` スキル)を用い、対象サイトのスクリーンショット取得・CSS計算値の抽出・アセットダウンロード・コンポーネント仕様書作成・並列実装までを自動化しています。
+- **公開にあたって** — サービス名は「インターンコンパス」、運営会社は架空の「株式会社ネクストラボ」としています。掲載企業名・ロゴ・写真・お知らせ内容はすべてダミーデータに置き換え済みで、実在の企業・サービスとは一切関係ありません。
 
-## Demo
+## 実装内容
 
-[![Watch the demo](docs/design-references/comparison.png)](https://youtu.be/O669pVZ_qr0)
+トップページを構成する以下のセクションを、実サイトの `getComputedStyle()` の値をベースに忠実に再現しました。
 
-> Click the image above to watch the full demo on YouTube.
+| セクション | 内容 |
+| --- | --- |
+| Header | グローバルナビゲーション、ロゴ |
+| Hero | ログインカード、締切カレンダーへの導線 |
+| FeaturedCompanies | 注目企業カード一覧 |
+| AboutSection | サービス紹介 |
+| DeadlineCalendar | エントリー締切カレンダー |
+| RecommendedArticles | おすすめ記事一覧 |
+| EventRanking | 人気イベントランキング |
+| SidebarBanners | サイドバー広告枠(スクロール追従) |
+| ClientLogoMarquee | 導入企業ロゴの無限スクロール(2トラック) |
+| Footer | フッターリンク、法的表記 |
 
-## Quick Start
+見た目の一致だけでなく、レイアウト崩れの修正・レスポンシブ対応・スクロール速度や間隔の調整など、挙動レベルでの再現にもこだわっています。
 
-> **Important:** Start by making your own copy with GitHub's **Use this template** button. Do not clone this template repository directly for your website project, and do not open pull requests here with your generated website.
+## アピールポイント
 
-1. **Create your own repository from this template**
+- 実サイトの構造・スタイル・インタラクションを詳細に分析し、コンポーネント仕様書に落とし込んだ上で実装する設計力
+- Next.js 16 (App Router) / React 19 / TypeScript (strict) / Tailwind CSS v4 / shadcn(Radix) によるモダンなフロントエンド実装力
+- AIエージェントを活用した開発ワークフロー(git worktreeでの並列ビルド・分業)の構築・運用経験
+- 著作権・商標に配慮した適切なデータ匿名化・de-branding対応
 
-   On the GitHub page for this project, click **Use this template**, then click **Create a new repository**.
+## モダンスタックへの刷新によるメリット
 
-   Give your new repository a name, choose whether it should be public or private, then click **Create repository**. If GitHub shows an **Include all branches** option, you can leave it off.
+解析の結果、元サイトはPHP + jQueryによるサーバーサイドレンダリング構成であることを確認しています(CakePHPなどのPHPフレームワークが使われていると推測されます)。本実装ではこれをNext.js / React / TypeScriptベースのモダンスタックに置き換えました。
 
-   This gives you your own separate project to work in, so your website changes stay in your account instead of coming back to the main template.
+| 観点 | 旧実装 (CakePHP + jQuery 想定) | 本実装 (Next.js + React + TypeScript) |
+| --- | --- | --- |
+| パフォーマンス | フルページリロード中心のサーバーレンダリング | RSC + ストリーミングSSR、`next/image` による画像最適化 |
+| 型安全性 | PHPの動的型付け、実行時までエラーに気づきにくい | TypeScript strictでコンパイル時に検知 |
+| UI設計 | View/Element/HelperにHTMLとロジックが混在 | コンポーネント単位で分離、shadcn/uiで再利用可能 |
+| 保守性 | モノリシックなMVC構成 | `src/components` / `types` / `lib` 等、関心の分離 |
+| アクセシビリティ | jQueryウィジェットは手動でa11y対応が必要 | Radixベースのshadcn/uiで標準対応 |
+| デプロイ/CI | Apache/PHP-FPM等の手動サーバー管理 | Vercelのゼロコンフィグ・プレビューデプロイ |
 
-2. **Open your new repository on your computer**
+本実装は、こうしたレガシーなサーバーサイドレンダリング型サイトを、モダンなJAMstack/Reactアーキテクチャへ移行する際の具体例として位置づけています。
 
-   After GitHub creates your copy, open that new repository. Click **Code** and open or clone your new repository with your preferred coding tool.
-
-   If you use the terminal, the command will look like this:
-
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/YOUR-NEW-REPOSITORY.git
-   cd YOUR-NEW-REPOSITORY
-   ```
-
-3. **Install dependencies**
-   ```bash
-   npm install
-   ```
-4. **Start your AI agent** — Claude Code recommended:
-   ```bash
-   claude --chrome
-   ```
-5. **Run the skill**:
-   ```
-   /clone-website <target-url1> [<target-url2> ...]
-   ```
-6. **Customize** (optional) — after the base clone is built, modify as needed
-
-> Using a different agent? Open `AGENTS.md` for project instructions — most agents pick it up automatically.
-
-## Supported Platforms
-
-| Agent                                                         | Status                     |
-| ------------------------------------------------------------- | -------------------------- |
-| [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | **Recommended** — Opus 4.8 |
-| [Codex CLI](https://github.com/openai/codex)                  | Supported                  |
-| [OpenCode](https://opencode.ai/)                              | Supported                  |
-| [GitHub Copilot](https://github.com/features/copilot)         | Supported                  |
-| [Cursor](https://cursor.com/)                                 | Supported                  |
-| [Windsurf](https://codeium.com/windsurf)                      | Supported                  |
-| [Gemini CLI](https://github.com/google-gemini/gemini-cli)     | Supported                  |
-| [Cline](https://github.com/cline/cline)                       | Supported                  |
-| [Roo Code](https://github.com/RooCodeInc/Roo-Code)            | Supported                  |
-| [Continue](https://continue.dev/)                             | Supported                  |
-| [Amazon Q](https://aws.amazon.com/q/developer/)               | Supported                  |
-| [Augment Code](https://www.augmentcode.com/)                  | Supported                  |
-| [Aider](https://aider.chat/)                                  | Supported                  |
-
-## Prerequisites
-
-- [Node.js](https://nodejs.org/) 24+
-- An AI coding agent (see [Supported Platforms](#supported-platforms))
-
-## Tech Stack
+## 技術スタック
 
 - **Next.js 16** — App Router, React 19, TypeScript strict
 - **shadcn/ui** — Radix primitives + Tailwind CSS v4
-- **Tailwind CSS v4** — oklch design tokens
-- **Lucide React** — default icons (replaced by extracted SVGs during cloning)
+- **Tailwind CSS v4** — oklchデザイントークン
+- **Lucide React** — アイコン
 
-## How It Works
-
-The `/clone-website` skill runs a multi-phase pipeline:
-
-1. **Reconnaissance** — screenshots, design token extraction, interaction sweep (scroll, click, hover, responsive)
-2. **Foundation** — updates fonts, colors, globals, downloads all assets
-3. **Component Specs** — writes detailed spec files (`docs/research/components/`) with exact computed CSS values, states, behaviors, and content
-4. **Parallel Build** — dispatches builder agents in git worktrees, one per section/component
-5. **Assembly & QA** — merges worktrees, wires up the page, runs visual diff against the original
-
-Each builder agent receives the full component specification inline — exact `getComputedStyle()` values, interaction models, multi-state content, responsive breakpoints, and asset paths. No guessing.
-
-## Use Cases
-
-- **Platform migration** — rebuild a site you own from WordPress/Webflow/Squarespace into a modern Next.js codebase
-- **Lost source code** — your site is live but the repo is gone, the developer left, or the stack is legacy. Get the code back in a modern format
-- **Learning** — deconstruct how production sites achieve specific layouts, animations, and responsive behavior by working with real code
-
-## Not Intended For
-
-- **Phishing or impersonation** — this project must not be used for deceptive purposes, impersonation, or any activity that breaks the law.
-- **Passing off someone's design as your own** — logos, brand assets, and original copy belong to their owners.
-- **Violating terms of service** — some sites explicitly prohibit scraping or reproduction. Check first.
-
-## Project Structure
+## プロジェクト構成
 
 ```
 src/
-  app/              # Next.js routes
-  components/       # React components
-    ui/             # shadcn/ui primitives
-    icons.tsx       # Extracted SVG icons
-  lib/utils.ts      # cn() utility
-  types/            # TypeScript interfaces
-  hooks/            # Custom React hooks
-public/
-  images/           # Downloaded images from target
-  videos/           # Downloaded videos from target
-  seo/              # Favicons, OG images
+  app/                # Next.js ルーティング
+  components/         # Reactコンポーネント (Header, Hero, FeaturedCompanies など)
+    ui/               # shadcn/ui プリミティブ
+    icons.tsx         # 抽出したSVGアイコン
+  lib/utils.ts        # cn() ユーティリティ
+  types/              # TypeScript型定義
 docs/
-  research/         # Extraction output & component specs
-  design-references/ # Screenshots
-scripts/
-  sync-agent-rules.sh  # Regenerate agent instruction files
-  sync-skills.mjs      # Regenerate /clone-website for all platforms
-AGENTS.md           # Agent instructions (single source of truth)
-CLAUDE.md           # Claude Code config (imports AGENTS.md)
-GEMINI.md           # Gemini CLI config (imports AGENTS.md)
+  research/           # 解析結果・コンポーネント仕様書
+  design-references/  # 参考スクリーンショット
+public/
+  images/             # ダミー画像・プレースホルダー
+  seo/                # favicon, OGP画像
 ```
 
-## Commands
+## セットアップ
 
 ```bash
-npm run dev    # Start dev server
-npm run build  # Production build
-npm run lint   # ESLint check
-npm run typecheck # TypeScript check
-npm run check  # Run lint + typecheck + build
+npm install
+npm run dev
 ```
 
-### If using docker
+http://localhost:3000 で確認できます。
+
+### コマンド一覧
 
 ```bash
-docker compose up app --build # build and run the app
-docker compose up dev --build # run the app in dev mode on port 3001
+npm run dev       # 開発サーバー起動
+npm run build     # 本番ビルド
+npm run lint      # ESLintチェック
+npm run typecheck # 型チェック
+npm run check     # lint + typecheck + build
 ```
 
-## Updating for Other Platforms
+### Dockerを使う場合
 
-Two source-of-truth files power all platform support. Edit the source, then run the sync script:
+```bash
+docker compose up app --build # ビルドして起動
+docker compose up dev --build # 開発モードで起動 (port 3001)
+```
 
-| What                   | Source of truth                         | Sync command                       |
-| ---------------------- | --------------------------------------- | ---------------------------------- |
-| Project instructions   | `AGENTS.md`                             | `bash scripts/sync-agent-rules.sh` |
-| `/clone-website` skill | `.claude/skills/clone-website/SKILL.md` | `node scripts/sync-skills.mjs`     |
+## 免責事項
 
-Each script regenerates the platform-specific copies automatically. Agents that read the source files natively need no regeneration.
+本リポジトリはポートフォリオ・技術デモ目的で作成したものであり、実在の企業・サービス・人物とは一切関係ありません。掲載されている企業名・ロゴ・写真・お知らせ・記事内容はすべて架空のものです。フィッシングや実在サービスへのなりすまし、対象サイトの利用規約に反する用途での利用はできません。
 
+## クレジット
 
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=JCodesMore/ai-website-cloner-template&type=Date)](https://star-history.com/#JCodesMore/ai-website-cloner-template&Date)
+本プロジェクトは [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) をベースに、AIエージェントによるWebサイト解析・再構築パイプラインを利用して構築しました。
 
 ## License
 

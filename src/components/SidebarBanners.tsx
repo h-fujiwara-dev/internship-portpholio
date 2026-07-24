@@ -17,13 +17,12 @@ const SIDEBAR_BANNERS: SidebarBanner[] = [
 
 export function SidebarBanners() {
   return (
-    // The outer element is the actual grid item and spans both rows
-    // (calendar/company/ranking/articles row + AboutSection row), so it's
-    // as tall as the whole main column. The inner element is the one that's
-    // actually `sticky` — it sticks at top:70px and only unsticks once the
-    // tall outer box's bottom edge (i.e. the bottom of AboutSection)
-    // scrolls past that offset, so the banners keep following the scroll
-    // all the way down instead of stopping after the articles list.
+    // 外側の要素が実際のグリッドアイテムで、両方の行
+    // （カレンダー/企業/ランキング/記事の行 + AboutSectionの行）にまたがっているため、
+    // メインカラム全体と同じ高さになる。実際に `sticky` が効いているのは内側の要素で、
+    // top:70px に固定され、外側の背の高いボックスの下端（＝AboutSectionの下端）が
+    // そのオフセットを過ぎてスクロールされるまで固定が外れない。これにより、
+    // 記事一覧のところで止まらず、バナーが一番下までスクロールに追従し続ける。
     <div className="md:col-start-2 md:row-start-1 md:row-span-2 md:pl-6">
       <div className="flex flex-col gap-6 md:sticky md:top-[70px] md:gap-0">
         <div className="mt-8 flex flex-col gap-2 md:mt-0">
