@@ -4,9 +4,9 @@ import { ChevronRightIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 import type { CalendarItem, TagVariant } from "@/types/internship";
 
-// Mirrors CompanyCard.tsx's TAG_COLOR map (not exported from that file) —
-// duplicated here with the exact same hex values so this component stays
-// self-contained. Keep in sync if the shared map ever changes.
+// CompanyCard.tsx の TAG_COLOR マップと同一内容（そのファイルからはエクスポート
+// されていないため）。このコンポーネントを自己完結させるため、同じ16進値で
+// ここに複製している。共有マップを変更する際は同期を取ること。
 const TAG_COLOR: Record<TagVariant, string> = {
   "pre-entry": "bg-red-600",
   "long-term": "bg-[#09c]",

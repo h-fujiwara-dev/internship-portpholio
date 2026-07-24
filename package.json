@@ -1,25 +1,23 @@
 {
-  "name": "ai-website-clone-template",
+  "name": "internship-portfolio",
   "version": "0.3.1",
   "private": true,
-  "description": "Clone any website into a clean, modern Next.js codebase using AI coding agents",
-  "author": "JCodesMore",
+  "description": "AI coding agent-built pixel-perfect clone of a Japanese internship listing site, de-branded as a portfolio piece",
+  "author": "h-fujiwara-dev",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JCodesMore/ai-website-cloner-template.git"
+    "url": "https://github.com/h-fujiwara-dev/internship-portpholio.git"
   },
-  "homepage": "https://github.com/JCodesMore/ai-website-cloner-template",
+  "homepage": "https://github.com/h-fujiwara-dev/internship-portpholio#readme",
   "bugs": {
-    "url": "https://github.com/JCodesMore/ai-website-cloner-template/issues"
+    "url": "https://github.com/h-fujiwara-dev/internship-portpholio/issues"
   },
   "keywords": [
     "claude-code",
-    "website-clone",
-    "reverse-engineering",
+    "portfolio",
     "nextjs",
     "ai",
-    "template",
     "tailwindcss",
     "shadcn-ui"
   ],

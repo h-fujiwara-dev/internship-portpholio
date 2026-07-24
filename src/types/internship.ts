@@ -21,7 +21,7 @@ export interface Tag {
   variant: TagVariant;
 }
 
-/** Shared card used by the deadline calendar, featured companies grid, and event ranking grid. */
+/** 締切カレンダー、注目企業グリッド、イベントランキンググリッドで共通利用するカード。 */
 export interface CompanyCard {
   title: string;
   href: string;
@@ -29,7 +29,7 @@ export interface CompanyCard {
   tags: Tag[];
   location: string;
   description: string;
-  /** Set only for the event ranking grid ("1位" / "2位" / "3位"). */
+  /** イベントランキンググリッドでのみ設定（「1位」「2位」「3位」）。 */
   rank?: string;
 }
 
@@ -60,7 +60,7 @@ export interface HeaderNavLink {
   icon: "external-link" | "book" | "user-plus" | "login";
 }
 
-/** Rendered as a text wordmark (no logo image) with a brand accent color. */
+/** ロゴ画像は使わず、ブランドカラーを付けたテキストワードマークとして表示する。 */
 export interface ClientLogo {
   name: string;
   color: string;

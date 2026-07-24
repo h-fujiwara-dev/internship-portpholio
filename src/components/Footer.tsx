@@ -95,7 +95,7 @@ export function Footer() {
           <p className="mt-2">COPYRIGHT © 2014 NextLab, Inc. ALL RIGHTS RESERVED.</p>
           <p className="mt-2">インターンコンパスは株式会社ネクストラボの登録商標です。</p>
           <p className="mt-2">
-            This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+            このサイトはreCAPTCHAによって保護されており、Googleのプライバシーポリシーと利用規約が適用されます。
           </p>
         </div>
       </div>
