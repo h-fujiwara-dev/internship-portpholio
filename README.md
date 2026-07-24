@@ -2,6 +2,8 @@
 
 <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License" /></a>
 
+**Live Demo:** https://ai-website-cloner-template-roan-five.vercel.app
+
 大学生向けインターンシップ情報サイトを、AIコーディングエージェントで解析・再構築したポートフォリオ実装です。実在のインターン情報サイト「[internshipguide.jp](https://internshipguide.jp/)」のトップページをリバースエンジニアリングし、デザイン・レイアウト・インタラクションをピクセル単位で再現した上で、サービス名・企業名・画像などはすべて架空のものに置き換えています。
 
 ## このプロジェクトについて
@@ -38,18 +40,18 @@
 
 ## モダンスタックへの刷新によるメリット
 
-解析の結果、元サイトはPHP + jQueryによるサーバーサイドレンダリング構成であることを確認しています(CakePHPなどのPHPフレームワークが使われていると推測されます)。本実装ではこれをNext.js / React / TypeScriptベースのモダンスタックに置き換えました。
+元サイトは旧来型のサーバーサイドレンダリング構成と見られます。本実装ではこれをNext.js / React / TypeScriptベースのモダンスタックへ刷新し、以下のような改善を実現しました。
 
-| 観点 | 旧実装 (CakePHP + jQuery 想定) | 本実装 (Next.js + React + TypeScript) |
+| 観点 | 旧来型のSSR構成 | 本実装 (Next.js + React + TypeScript) |
 | --- | --- | --- |
-| パフォーマンス | フルページリロード中心のサーバーレンダリング | RSC + ストリーミングSSR、`next/image` による画像最適化 |
-| 型安全性 | PHPの動的型付け、実行時までエラーに気づきにくい | TypeScript strictでコンパイル時に検知 |
-| UI設計 | View/Element/HelperにHTMLとロジックが混在 | コンポーネント単位で分離、shadcn/uiで再利用可能 |
-| 保守性 | モノリシックなMVC構成 | `src/components` / `types` / `lib` 等、関心の分離 |
-| アクセシビリティ | jQueryウィジェットは手動でa11y対応が必要 | Radixベースのshadcn/uiで標準対応 |
-| デプロイ/CI | Apache/PHP-FPM等の手動サーバー管理 | Vercelのゼロコンフィグ・プレビューデプロイ |
+| パフォーマンス | フルページリロード中心 | RSC + ストリーミングSSRと`next/image`による自動最適化で高速な描画を実現 |
+| 型安全性 | 動的型付けが中心 | TypeScript strictによりコンパイル時にバグを検出し、堅牢性を担保 |
+| UI設計 | HTMLとロジックが混在しがち | コンポーネント単位で完全に分離し、shadcn/uiで高い再利用性を実現 |
+| 保守性 | モノリシックになりがち | `src/components` / `types` / `lib` へ関心を分離し、長期的な保守性を向上 |
+| アクセシビリティ | 個別実装が必要になりがち | Radixベースのshadcn/uiでWAI-ARIA準拠のa11yを標準装備 |
+| デプロイ/CI | サーバー管理が必要 | Vercelによるゼロコンフィグ・プレビューデプロイで開発速度を最大化 |
 
-本実装は、こうしたレガシーなサーバーサイドレンダリング型サイトを、モダンなJAMstack/Reactアーキテクチャへ移行する際の具体例として位置づけています。
+本実装は、こうした旧来型のサーバーサイドレンダリングサイトを、モダンなReactアーキテクチャへ移行する際の具体例として位置づけています。
 
 ## 技術スタック
 
