@@ -28,7 +28,17 @@ A reusable template for reverse-engineering any website into a clean, modern Nex
 - `npm run build` — Production build
 - `npm run lint` — ESLint check
 - `npm run typecheck` — TypeScript check
-- `npm run check` — Run lint + typecheck + build
+- `npm run test` — Run unit tests once (Vitest)
+- `npm run test:watch` — Run unit tests in watch mode
+- `npm run test:coverage` — Run unit tests with coverage report
+- `npm run test:e2e` — Run Playwright E2E tests (builds and starts the app automatically)
+- `npm run test:e2e:ui` — Run Playwright E2E tests in UI mode
+- `npm run check` — Run lint + typecheck + test + build
+
+## Testing
+- **Unit tests:** Vitest + React Testing Library. Colocated next to the source file (`Header.tsx` → `Header.test.tsx`), not under a separate `__tests__/` directory.
+- **E2E tests:** Playwright, in `e2e/*.spec.ts`. Targets Chromium only; responsive/mobile behavior is covered via `test.use({ viewport })` overrides within a spec rather than extra browser projects. Not part of `npm run check` or CI — run manually with `npm run test:e2e` (requires `npx playwright install chromium` once locally).
+- When an element can be `aria-hidden` (e.g. a closed mobile nav panel), don't rely on `getByRole` with an accessible name to query it in unit tests — accessible-name computation for `aria-hidden` elements is unreliable across query modes. Query by a stable `id`/test id instead, and assert on the `aria-hidden` attribute directly.
 
 ## Code Style
 - TypeScript strict mode, no `any`
