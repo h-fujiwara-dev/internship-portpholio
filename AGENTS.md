@@ -57,6 +57,11 @@ docs/
 scripts/            # Asset download scripts
 ```
 
+## Branch Strategy
+- `main` is protected — direct pushes are blocked (including for the repo owner) and every change must land via a reviewed pull request. Never push directly to `main`.
+- `develop` is the active development branch. Do your day-to-day work here.
+- Workflow: commit and push to `develop` → open a PR from `develop` into `main` (e.g. `gh pr create`) → the repo owner reviews and merges it on GitHub.
+
 ## MOST IMPORTANT NOTES
 - When launching Claude Code agent teams, ALWAYS have each teammate work in their own worktree branch and merge everyone's work at the end, resolving any merge conflicts smartly since you are basically serving the orchestrator role and have full context to our goals, work given, work achieved, and desired outcomes.
 - After editing `AGENTS.md`, run `bash scripts/sync-agent-rules.sh` to regenerate platform-specific instruction files.
