@@ -1,9 +1,41 @@
+import { AboutSection } from "@/components/AboutSection";
+import { ClientLogoMarquee } from "@/components/ClientLogoMarquee";
+import { DeadlineCalendar } from "@/components/DeadlineCalendar";
+import { EventRanking } from "@/components/EventRanking";
+import { FeaturedCompanies } from "@/components/FeaturedCompanies";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+import { RecommendedArticles } from "@/components/RecommendedArticles";
+import { SidebarBanners } from "@/components/SidebarBanners";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <p className="text-muted-foreground">
-        Clone target not yet built. Run <code className="font-mono text-foreground">/clone-website</code> to start.
-      </p>
-    </main>
+    <div id="top" className="flex min-h-full flex-col">
+      <Header />
+
+      <main className="flex-1">
+        <Hero />
+        <ClientLogoMarquee />
+
+        <div className="mx-auto max-w-[650px] px-4 md:max-w-[980px]">
+          <div className="flex flex-col gap-[30px] md:grid md:grid-cols-[calc(100%-300px)_300px] md:gap-0">
+            <div className="flex flex-col gap-12 md:pr-6">
+              <DeadlineCalendar />
+              <FeaturedCompanies />
+              <EventRanking />
+              <RecommendedArticles />
+            </div>
+            <SidebarBanners />
+          </div>
+
+          <div className="mt-12">
+            <AboutSection />
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
   );
 }

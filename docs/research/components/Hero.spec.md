@@ -30,8 +30,8 @@ section.key-visual (full-bleed background photo)
 - background-repeat:no-repeat; background-position:center; background-size:cover
 - Use a `<picture>`/CSS approach: mobile bg via base class, desktop bg via `md:` variant (Tailwind
   arbitrary background-image utilities), or a plain `<div>` with inline style swapped by a `useEffect`
-  media query is overkill — prefer pure CSS (`background-image` set via Tailwind `bg-[url(...)]` + a
-  `md:bg-[url(...)]` override).
+  media query is overkill — prefer pure CSS (`background-image` set via a Tailwind arbitrary-value
+  utility for the base and `md:` variants).
 
 ### `.key-visual__inner`
 - padding: 2em; background-color: rgba(0,0,0,.4) (mobile)
