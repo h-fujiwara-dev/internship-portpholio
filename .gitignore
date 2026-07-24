@@ -45,6 +45,13 @@ next-env.d.ts
 .claude/skills/customize/
 .claude/skills/release/
 
+# Test output
+/coverage/
+/playwright-report/
+/test-results/
+/blob-report/
+/playwright/.cache/
+
 # Local temp files
 temp/
 
