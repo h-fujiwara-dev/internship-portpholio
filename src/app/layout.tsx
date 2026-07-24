@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Website Clone",
-  description: "Pixel-perfect website clone",
+  title: "インターンシップガイド-大学生のインターンシップ総合サイト",
+  description:
+    "インターンシップを探すならインターンシップガイド！全国のインターン募集情報を44,900件以上掲載。長期インターンシップ、サマーインターンだけでなく内定者のエントリーシートや就活イベント等の情報も充実。大学生の就活生はもちろん、1年生から使えるインターンシップ総合サイトです。",
+  icons: {
+    icon: "/seo/favicon.ico",
+    apple: "/seo/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -23,10 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="ja" className="h-full antialiased">
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

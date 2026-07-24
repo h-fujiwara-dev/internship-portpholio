@@ -7,7 +7,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Meiryo", "Hiragino Kaku Gothic Pro", "Hiragino Sans", Meiryo,
+    "MS PGothic", sans-serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -81,6 +82,37 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* internshipguide.jp brand tokens (extracted from production CSS) */
+  --ig-text: #333333;
+  --ig-link: #5e9fb5;
+  --ig-teal: #5e9fb5;
+  --ig-teal-dark: #58717d;
+  --ig-accent-blue: #63dbff;
+  --ig-login-blue: #5ab9dd;
+  --ig-login-blue-hover: #52abcd;
+  --ig-pink: #de5485;
+  --ig-pink-hover: #cb3b6e;
+  --ig-border: #e2e2e2;
+  --ig-frame-border: #3c8399;
+
+  /* c-tag pill colors, by variant */
+  --ig-tag-pre-entry: red;
+  --ig-tag-long-term: #0099cc;
+  --ig-tag-short-term: #66ccff;
+  --ig-tag-event: #ff9966;
+  --ig-tag-exam: #3f9877;
+  --ig-tag-direct: #fc370b;
+  --ig-tag-1day: #ffcc00;
+  --ig-tag-briefing: #ff77ff;
+  --ig-tag-video: #434da2;
+  --ig-tag-online: #00bb85;
+  --ig-tag-recruit-agent: maroon;
+  --ig-tag-benefit: #cc0000;
+  --ig-tag-soon: #cc0000;
+  --ig-tag-grade1: #5e9fb5;
+  --ig-tag-grade2: #e97787;
+  --ig-tag-grade3: #d9ad60;
 }
 
 .dark {
@@ -123,8 +155,29 @@
   }
   body {
     @apply bg-background text-foreground;
+    color: var(--ig-text);
   }
   html {
     @apply font-sans;
   }
+  a {
+    color: var(--ig-link);
+  }
+  a:hover {
+    opacity: 0.6;
+  }
+}
+
+/* Infinite client-logo marquee (ClientLogoMarquee component) */
+@keyframes ig-logo-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.ig-marquee-track {
+  animation: ig-logo-scroll 60s linear infinite;
 }
