@@ -36,6 +36,21 @@
 - AIエージェントを活用した開発ワークフロー(git worktreeでの並列ビルド・分業)の構築・運用経験
 - 著作権・商標に配慮した適切なデータ匿名化・de-branding対応
 
+## モダンスタックへの刷新によるメリット
+
+解析の結果、元サイトはPHP + jQueryによるサーバーサイドレンダリング構成であることを確認しています(CakePHPなどのPHPフレームワークが使われていると推測されます)。本実装ではこれをNext.js / React / TypeScriptベースのモダンスタックに置き換えました。
+
+| 観点 | 旧実装 (CakePHP + jQuery 想定) | 本実装 (Next.js + React + TypeScript) |
+| --- | --- | --- |
+| パフォーマンス | フルページリロード中心のサーバーレンダリング | RSC + ストリーミングSSR、`next/image` による画像最適化 |
+| 型安全性 | PHPの動的型付け、実行時までエラーに気づきにくい | TypeScript strictでコンパイル時に検知 |
+| UI設計 | View/Element/HelperにHTMLとロジックが混在 | コンポーネント単位で分離、shadcn/uiで再利用可能 |
+| 保守性 | モノリシックなMVC構成 | `src/components` / `types` / `lib` 等、関心の分離 |
+| アクセシビリティ | jQueryウィジェットは手動でa11y対応が必要 | Radixベースのshadcn/uiで標準対応 |
+| デプロイ/CI | Apache/PHP-FPM等の手動サーバー管理 | Vercelのゼロコンフィグ・プレビューデプロイ |
+
+本実装は、こうしたレガシーなサーバーサイドレンダリング型サイトを、モダンなJAMstack/Reactアーキテクチャへ移行する際の具体例として位置づけています。
+
 ## 技術スタック
 
 - **Next.js 16** — App Router, React 19, TypeScript strict
